@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DaroKhaneModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DaroKhaneModelStoreContainer">
+          <EntitySet Name="AghlameNoskhe" EntityType="DaroKhaneModel.Store.AghlameNoskhe" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Bimar" EntityType="DaroKhaneModel.Store.Bimar" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Bimeh" EntityType="DaroKhaneModel.Store.Bimeh" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Daroo" EntityType="DaroKhaneModel.Store.Daroo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Karbar" EntityType="DaroKhaneModel.Store.Karbar" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Noskhe" EntityType="DaroKhaneModel.Store.Noskhe" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_AghlameNoskhe_Daroo" Association="DaroKhaneModel.Store.FK_AghlameNoskhe_Daroo">
+            <End Role="Daroo" EntitySet="Daroo" />
+            <End Role="AghlameNoskhe" EntitySet="AghlameNoskhe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AghlameNoskhe_Noskhe" Association="DaroKhaneModel.Store.FK_AghlameNoskhe_Noskhe">
+            <End Role="Noskhe" EntitySet="Noskhe" />
+            <End Role="AghlameNoskhe" EntitySet="AghlameNoskhe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Noskhe_Bimar" Association="DaroKhaneModel.Store.FK_Noskhe_Bimar">
+            <End Role="Bimar" EntitySet="Bimar" />
+            <End Role="Noskhe" EntitySet="Noskhe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Noskhe_Bimeh" Association="DaroKhaneModel.Store.FK_Noskhe_Bimeh">
+            <End Role="Bimeh" EntitySet="Bimeh" />
+            <End Role="Noskhe" EntitySet="Noskhe" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AghlameNoskhe">
+          <Key>
+            <PropertyRef Name="code_noskhe" />
+            <PropertyRef Name="code_daroo" />
+          </Key>
+          <Property Name="code_noskhe" Type="int" Nullable="false" />
+          <Property Name="code_daroo" Type="int" Nullable="false" />
+          <Property Name="tedad" Type="int" />
+        </EntityType>
+        <EntityType Name="Bimar">
+          <Key>
+            <PropertyRef Name="code_bimar" />
+          </Key>
+          <Property Name="code_bimar" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name_bimar" Type="nvarchar" MaxLength="50" />
+          <Property Name="mellicode_bimar" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Bimeh">
+          <Key>
+            <PropertyRef Name="code_bimeh" />
+          </Key>
+          <Property Name="code_bimeh" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nameSazman_bimeh" Type="nvarchar" MaxLength="50" />
+          <Property Name="darsad_bimeh" Type="nvarchar" MaxLength="50" />
+          <Property Name="tarikheEtebar_bimeh" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Daroo">
+          <Key>
+            <PropertyRef Name="code_daroo" />
+          </Key>
+          <Property Name="code_daroo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name_daroo" Type="nvarchar" MaxLength="50" />
+          <Property Name="sherkatTolid_daroo" Type="nvarchar" MaxLength="50" />
+          <Property Name="tarikhTolid_daroo" Type="nvarchar" MaxLength="50" />
+          <Property Name="tarikhEngeza_daroo" Type="nvarchar" MaxLength="50" />
+          <Property Name="gheymat_daroo" Type="nvarchar" MaxLength="50" />
+          <Property Name="tedadMojod_daroo" Type="int" />
+        </EntityType>
+        <EntityType Name="Karbar">
+          <Key>
+            <PropertyRef Name="code_karbar" />
+          </Key>
+          <Property Name="code_karbar" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name_karbar" Type="varchar" MaxLength="50" />
+          <Property Name="rmazeVorood_karbar" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Noskhe">
+          <Key>
+            <PropertyRef Name="code_noskhe" />
+          </Key>
+          <Property Name="code_noskhe" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="code_bimar" Type="int" Nullable="false" />
+          <Property Name="code_bimeh" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AghlameNoskhe_Daroo">
+          <End Role="Daroo" Type="DaroKhaneModel.Store.Daroo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AghlameNoskhe" Type="DaroKhaneModel.Store.AghlameNoskhe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Daroo">
+              <PropertyRef Name="code_daroo" />
+            </Principal>
+            <Dependent Role="AghlameNoskhe">
+              <PropertyRef Name="code_daroo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AghlameNoskhe_Noskhe">
+          <End Role="Noskhe" Type="DaroKhaneModel.Store.Noskhe" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AghlameNoskhe" Type="DaroKhaneModel.Store.AghlameNoskhe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Noskhe">
+              <PropertyRef Name="code_noskhe" />
+            </Principal>
+            <Dependent Role="AghlameNoskhe">
+              <PropertyRef Name="code_daroo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Noskhe_Bimar">
+          <End Role="Bimar" Type="DaroKhaneModel.Store.Bimar" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Noskhe" Type="DaroKhaneModel.Store.Noskhe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bimar">
+              <PropertyRef Name="code_bimar" />
+            </Principal>
+            <Dependent Role="Noskhe">
+              <PropertyRef Name="code_bimar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Noskhe_Bimeh">
+          <End Role="Bimeh" Type="DaroKhaneModel.Store.Bimeh" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Noskhe" Type="DaroKhaneModel.Store.Noskhe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bimeh">
+              <PropertyRef Name="code_bimeh" />
+            </Principal>
+            <Dependent Role="Noskhe">
+              <PropertyRef Name="code_bimeh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DaroKhaneModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DaroKhaneEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AghlameNoskhe" EntityType="DaroKhaneModel.AghlameNoskhe" />
+          <EntitySet Name="Bimar" EntityType="DaroKhaneModel.Bimar" />
+          <EntitySet Name="Bimeh" EntityType="DaroKhaneModel.Bimeh" />
+          <EntitySet Name="Daroo" EntityType="DaroKhaneModel.Daroo" />
+          <EntitySet Name="Karbar" EntityType="DaroKhaneModel.Karbar" />
+          <EntitySet Name="Noskhe" EntityType="DaroKhaneModel.Noskhe" />
+          <AssociationSet Name="FK_AghlameNoskhe_Daroo" Association="DaroKhaneModel.FK_AghlameNoskhe_Daroo">
+            <End Role="Daroo" EntitySet="Daroo" />
+            <End Role="AghlameNoskhe" EntitySet="AghlameNoskhe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AghlameNoskhe_Noskhe" Association="DaroKhaneModel.FK_AghlameNoskhe_Noskhe">
+            <End Role="Noskhe" EntitySet="Noskhe" />
+            <End Role="AghlameNoskhe" EntitySet="AghlameNoskhe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Noskhe_Bimar" Association="DaroKhaneModel.FK_Noskhe_Bimar">
+            <End Role="Bimar" EntitySet="Bimar" />
+            <End Role="Noskhe" EntitySet="Noskhe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Noskhe_Bimeh" Association="DaroKhaneModel.FK_Noskhe_Bimeh">
+            <End Role="Bimeh" EntitySet="Bimeh" />
+            <End Role="Noskhe" EntitySet="Noskhe" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AghlameNoskhe">
+          <Key>
+            <PropertyRef Name="code_noskhe" />
+            <PropertyRef Name="code_daroo" />
+          </Key>
+          <Property Name="code_noskhe" Type="Int32" Nullable="false" />
+          <Property Name="code_daroo" Type="Int32" Nullable="false" />
+          <Property Name="tedad" Type="Int32" />
+          <NavigationProperty Name="Daroo" Relationship="DaroKhaneModel.FK_AghlameNoskhe_Daroo" FromRole="AghlameNoskhe" ToRole="Daroo" />
+          <NavigationProperty Name="Noskhe" Relationship="DaroKhaneModel.FK_AghlameNoskhe_Noskhe" FromRole="AghlameNoskhe" ToRole="Noskhe" />
+        </EntityType>
+        <EntityType Name="Bimar">
+          <Key>
+            <PropertyRef Name="code_bimar" />
+          </Key>
+          <Property Name="code_bimar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_bimar" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="mellicode_bimar" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Noskhe" Relationship="DaroKhaneModel.FK_Noskhe_Bimar" FromRole="Bimar" ToRole="Noskhe" />
+        </EntityType>
+        <EntityType Name="Bimeh">
+          <Key>
+            <PropertyRef Name="code_bimeh" />
+          </Key>
+          <Property Name="code_bimeh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nameSazman_bimeh" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="darsad_bimeh" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="tarikheEtebar_bimeh" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Noskhe" Relationship="DaroKhaneModel.FK_Noskhe_Bimeh" FromRole="Bimeh" ToRole="Noskhe" />
+        </EntityType>
+        <EntityType Name="Daroo">
+          <Key>
+            <PropertyRef Name="code_daroo" />
+          </Key>
+          <Property Name="code_daroo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_daroo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="sherkatTolid_daroo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="tarikhTolid_daroo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="tarikhEngeza_daroo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="gheymat_daroo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="tedadMojod_daroo" Type="Int32" />
+          <NavigationProperty Name="AghlameNoskhe" Relationship="DaroKhaneModel.FK_AghlameNoskhe_Daroo" FromRole="Daroo" ToRole="AghlameNoskhe" />
+        </EntityType>
+        <EntityType Name="Karbar">
+          <Key>
+            <PropertyRef Name="code_karbar" />
+          </Key>
+          <Property Name="code_karbar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_karbar" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="rmazeVorood_karbar" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Noskhe">
+          <Key>
+            <PropertyRef Name="code_noskhe" />
+          </Key>
+          <Property Name="code_noskhe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code_bimar" Type="Int32" Nullable="false" />
+          <Property Name="code_bimeh" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AghlameNoskhe" Relationship="DaroKhaneModel.FK_AghlameNoskhe_Noskhe" FromRole="Noskhe" ToRole="AghlameNoskhe" />
+          <NavigationProperty Name="Bimar" Relationship="DaroKhaneModel.FK_Noskhe_Bimar" FromRole="Noskhe" ToRole="Bimar" />
+          <NavigationProperty Name="Bimeh" Relationship="DaroKhaneModel.FK_Noskhe_Bimeh" FromRole="Noskhe" ToRole="Bimeh" />
+        </EntityType>
+        <Association Name="FK_AghlameNoskhe_Daroo">
+          <End Role="Daroo" Type="DaroKhaneModel.Daroo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AghlameNoskhe" Type="DaroKhaneModel.AghlameNoskhe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Daroo">
+              <PropertyRef Name="code_daroo" />
+            </Principal>
+            <Dependent Role="AghlameNoskhe">
+              <PropertyRef Name="code_daroo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AghlameNoskhe_Noskhe">
+          <End Role="Noskhe" Type="DaroKhaneModel.Noskhe" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AghlameNoskhe" Type="DaroKhaneModel.AghlameNoskhe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Noskhe">
+              <PropertyRef Name="code_noskhe" />
+            </Principal>
+            <Dependent Role="AghlameNoskhe">
+              <PropertyRef Name="code_daroo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Noskhe_Bimar">
+          <End Role="Bimar" Type="DaroKhaneModel.Bimar" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Noskhe" Type="DaroKhaneModel.Noskhe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bimar">
+              <PropertyRef Name="code_bimar" />
+            </Principal>
+            <Dependent Role="Noskhe">
+              <PropertyRef Name="code_bimar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Noskhe_Bimeh">
+          <End Role="Bimeh" Type="DaroKhaneModel.Bimeh" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Noskhe" Type="DaroKhaneModel.Noskhe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bimeh">
+              <PropertyRef Name="code_bimeh" />
+            </Principal>
+            <Dependent Role="Noskhe">
+              <PropertyRef Name="code_bimeh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DaroKhaneModelStoreContainer" CdmEntityContainer="DaroKhaneEntities1">
+          <EntitySetMapping Name="AghlameNoskhe"><EntityTypeMapping TypeName="DaroKhaneModel.AghlameNoskhe"><MappingFragment StoreEntitySet="AghlameNoskhe">
+            <ScalarProperty Name="code_noskhe" ColumnName="code_noskhe" />
+            <ScalarProperty Name="code_daroo" ColumnName="code_daroo" />
+            <ScalarProperty Name="tedad" ColumnName="tedad" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Bimar"><EntityTypeMapping TypeName="DaroKhaneModel.Bimar"><MappingFragment StoreEntitySet="Bimar">
+            <ScalarProperty Name="code_bimar" ColumnName="code_bimar" />
+            <ScalarProperty Name="name_bimar" ColumnName="name_bimar" />
+            <ScalarProperty Name="mellicode_bimar" ColumnName="mellicode_bimar" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Bimeh"><EntityTypeMapping TypeName="DaroKhaneModel.Bimeh"><MappingFragment StoreEntitySet="Bimeh">
+            <ScalarProperty Name="code_bimeh" ColumnName="code_bimeh" />
+            <ScalarProperty Name="nameSazman_bimeh" ColumnName="nameSazman_bimeh" />
+            <ScalarProperty Name="darsad_bimeh" ColumnName="darsad_bimeh" />
+            <ScalarProperty Name="tarikheEtebar_bimeh" ColumnName="tarikheEtebar_bimeh" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Daroo"><EntityTypeMapping TypeName="DaroKhaneModel.Daroo"><MappingFragment StoreEntitySet="Daroo">
+            <ScalarProperty Name="code_daroo" ColumnName="code_daroo" />
+            <ScalarProperty Name="name_daroo" ColumnName="name_daroo" />
+            <ScalarProperty Name="sherkatTolid_daroo" ColumnName="sherkatTolid_daroo" />
+            <ScalarProperty Name="tarikhTolid_daroo" ColumnName="tarikhTolid_daroo" />
+            <ScalarProperty Name="tarikhEngeza_daroo" ColumnName="tarikhEngeza_daroo" />
+            <ScalarProperty Name="gheymat_daroo" ColumnName="gheymat_daroo" />
+            <ScalarProperty Name="tedadMojod_daroo" ColumnName="tedadMojod_daroo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Karbar"><EntityTypeMapping TypeName="DaroKhaneModel.Karbar"><MappingFragment StoreEntitySet="Karbar">
+            <ScalarProperty Name="code_karbar" ColumnName="code_karbar" />
+            <ScalarProperty Name="name_karbar" ColumnName="name_karbar" />
+            <ScalarProperty Name="rmazeVorood_karbar" ColumnName="rmazeVorood_karbar" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Noskhe"><EntityTypeMapping TypeName="DaroKhaneModel.Noskhe"><MappingFragment StoreEntitySet="Noskhe">
+            <ScalarProperty Name="code_noskhe" ColumnName="code_noskhe" />
+            <ScalarProperty Name="code_bimar" ColumnName="code_bimar" />
+            <ScalarProperty Name="code_bimeh" ColumnName="code_bimeh" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="DaroKhaneModel.AghlameNoskhe" Width="1.5" PointX="5.25" PointY="1" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaroKhaneModel.Bimar" Width="1.5" PointX="0.75" PointY="1.125" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaroKhaneModel.Bimeh" Width="1.5" PointX="0.75" PointY="5" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaroKhaneModel.Daroo" Width="1.5" PointX="3" PointY="5.375" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaroKhaneModel.Karbar" Width="1.5" PointX="5.75" PointY="4.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaroKhaneModel.Noskhe" Width="1.5" PointX="3" PointY="0.875" Height="2.1725878906249996" IsExpanded="true" />
+        <AssociationConnector Association="DaroKhaneModel.FK_AghlameNoskhe_Daroo" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="7.1701871744791656" />
+          <ConnectorPoint PointX="5.46875" PointY="7.1701871744791656" />
+          <ConnectorPoint PointX="5.46875" PointY="2.9802864583333335" />
+        </AssociationConnector>
+        <AssociationConnector Association="DaroKhaneModel.FK_AghlameNoskhe_Noskhe" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="1.9901432291666668" />
+          <ConnectorPoint PointX="5.25" PointY="1.9901432291666668" />
+        </AssociationConnector>
+        <AssociationConnector Association="DaroKhaneModel.FK_Noskhe_Bimar" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.0189925130208337" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="2.0189925130208333" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="2.0189925130208337" />
+          <ConnectorPoint PointX="3" PointY="2.0189925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="DaroKhaneModel.FK_Noskhe_Bimeh" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5" />
+          <ConnectorPoint PointX="2.625" PointY="4.625" />
+          <ConnectorPoint PointX="2.625" PointY="1.4157442565104161" />
+          <ConnectorPoint PointX="3" PointY="1.4157442565104161" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

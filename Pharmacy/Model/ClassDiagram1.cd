@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DaroKhane.frmLogin" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAgAAQACAAABAAAACAAAACAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>frmLogin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DaroKhane.Program" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DaroKhane.Properties.Resources" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAACAAAAACAAAAAAAhEAgAAQEAAAACAGAAgAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DaroKhane.Properties.Settings" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DaroKhane.Drug" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQAAAAAAAAABAAAIGAAAACAAIAIAAgAAI=</HashCode>
+      <FileName>Model\Drug.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DaroKhane.Sick" Collapsed="true">
+    <Position X="4.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQABAAAAAAAAQAAAFAAAACAAAAAAAgAAA=</HashCode>
+      <FileName>Model\Sick.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DaroKhane.BimehClass" Collapsed="true">
+    <Position X="4.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAABAQAAAAAAAAAAAAgAEAAAgCAAAAAAAgAAA=</HashCode>
+      <FileName>Model\Bimeh.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DaroKhane.NoskheClass" Collapsed="true">
+    <Position X="6.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAARAAAAAAAAAAAAAAFAAAACAAAAAAAgAgA=</HashCode>
+      <FileName>Model\Noskhe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DaroKhane.User" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAQAAAAAAAAAAAAAAGAAgAAAQAAAgAAAAA=</HashCode>
+      <FileName>Model\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DaroKhane.ServiceManager">
+    <Position X="0.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Services\ServiceManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DaroKhane.ListNoskhe">
+    <Position X="6.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAARAAAAAAAAAAAAQAEAAAACAAAgAAAgAAA=</HashCode>
+      <FileName>Model\ListNoskhe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
